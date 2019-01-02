@@ -10,7 +10,9 @@ $(document).on("click", '.t-basket__close', function(e) {
         dataType: 'json',
           success: function(result){
 			  $('.header__h-info li.h-info__item-basket span.h-info__count').text(parseInt($('.header__h-info li.h-info__item-basket span.h-info__count').text())-1);
-			  $.ajax({
+			 
+				// начало аджакс запроса обновления корзины
+				$.ajax({
 					url:'/local/ajax/addtocart.php',
 					type:'POST',
 					data:{'basket':'refresh'},
@@ -19,7 +21,7 @@ $(document).on("click", '.t-basket__close', function(e) {
 
 					},
 				})
-              // $('#del_'+id).css({"display": "none"});
+				// конец запроса
           }
       });
 });
